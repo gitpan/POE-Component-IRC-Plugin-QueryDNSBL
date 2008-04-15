@@ -8,7 +8,7 @@ use POE::Component::IRC::Plugin qw(:ALL);
 use POE::Component::IRC::Common qw(irc_ip_is_ipv4);
 use vars qw($VERSION);
 
-$VERSION = '0.02';
+$VERSION = '0.04';
 
 sub new {
   my $package = shift;
@@ -186,6 +186,10 @@ Of course, if you changed the C<command> in the constructor it will be something
 =head1 AUTHOR
 
 Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
+
+=head1 LICENSE
+
+This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 =head1 SEE ALSO
 
