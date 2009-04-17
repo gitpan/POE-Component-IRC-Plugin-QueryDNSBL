@@ -8,7 +8,7 @@ use POE::Component::IRC::Plugin qw(:ALL);
 use POE::Component::IRC::Common qw(irc_ip_is_ipv4);
 use vars qw($VERSION);
 
-$VERSION = '0.06';
+$VERSION = '1.00';
 
 sub new {
   my $package = shift;
@@ -162,7 +162,7 @@ You can supply your own resolver object via the constructor.
 
 =over 
 
-=item new
+=item C<new>
 
 Creates a new plugin object. Takes some optional parameter:
 
@@ -189,7 +189,7 @@ Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
 
 =head1 LICENSE
 
-Copyright C<(c)> Chris Williams.
+Copyright E<copy> Chris Williams.
 
 This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
