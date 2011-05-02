@@ -1,0 +1,50 @@
+{
+   "abstract" : "A POE::Component::IRC plugin for IRC based DNSBL queries",
+   "author" : [
+      "Chris Williams <chris@bingosnet.co.uk>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110930",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "POE-Component-IRC-Plugin-QueryDNSBL",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0.47"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Net::IP" : 0,
+            "POE" : "1.004",
+            "POE::Component::Client::DNSBL" : "0.06",
+            "POE::Component::IRC" : "5.7",
+            "POE::Component::IRC::Common" : "5.16",
+            "POE::Component::IRC::Plugin" : "0.1",
+            "perl" : "v5.6.0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://github.com/bingos/poe-component-irc-plugin-querydnsbl/tree",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/bingos/poe-component-irc-plugin-querydnsbl.git",
+         "web" : "http://github.com/bingos/poe-component-irc-plugin-querydnsbl/tree"
+      }
+   },
+   "version" : "1.02"
+}
+

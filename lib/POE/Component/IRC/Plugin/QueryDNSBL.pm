@@ -1,20 +1,22 @@
 package POE::Component::IRC::Plugin::QueryDNSBL;
+BEGIN {
+  $POE::Component::IRC::Plugin::QueryDNSBL::VERSION = '1.02';
+}
+
+#ABSTRACT: A POE::Component::IRC plugin for IRC based DNSBL queries
 
 use strict;
 use warnings;
 use POE;
 use POE::Component::Client::DNSBL;
-use POE::Component::IRC::Plugin qw(:ALL);
-use POE::Component::IRC::Common qw(irc_ip_is_ipv4);
-use vars qw($VERSION);
-
-$VERSION = '1.00';
+use POE::Component::IRC::Plugin qw[:ALL];
+use Net::IP qw[ip_is_ipv4];
 
 sub new {
   my $package = shift;
   my %args = @_;
   $args{lc $_} = delete $args{$_} for keys %args;
-  delete $args{resolver} 
+  delete $args{resolver}
 	unless ref $args{resolver} and $args{resolver}->isa('POE::Component::Client::DNS');
   bless \%args, $package;
 }
@@ -23,8 +25,8 @@ sub PCI_register {
   my ($self,$irc) = @_;
   $irc->plugin_register( $self, 'SERVER', qw(public msg) );
   $self->{resolver} = $irc->resolver();
-  $self->{_dnsbl} = POE::Component::Client::DNSBL->spawn( 
-	resolver => $self->{resolver}, 
+  $self->{_dnsbl} = POE::Component::Client::DNSBL->spawn(
+	resolver => $self->{resolver},
 	dnsbl => $self->{dnsbl},
   );
   return 1;
@@ -62,7 +64,7 @@ sub S_msg {
 sub _dns_query {
   my ($self,$irc,$target,$method,$cmdstr,$query,$type) = @_;
   return unless $cmdstr and $query;
-  unless ( irc_ip_is_ipv4( $query ) ) {
+  unless ( ip_is_ipv4( $query ) ) {
      $irc->yield( $method, $target, 'That isn\'t an IPv4 address' );
      return;
   }
@@ -97,11 +99,17 @@ sub _response {
 
 1;
 
+
 __END__
+=pod
 
 =head1 NAME
 
 POE::Component::IRC::Plugin::QueryDNSBL - A POE::Component::IRC plugin for IRC based DNSBL queries
+
+=head1 VERSION
+
+version 1.02
 
 =head1 SYNOPSIS
 
@@ -151,23 +159,28 @@ POE::Component::IRC::Plugin::QueryDNSBL - A POE::Component::IRC plugin for IRC b
 
 =head1 DESCRIPTION
 
-POE::Component::IRC::Plugin::QueryDNS is a L<POE::Component::IRC> plugin that provides DNSBL query 
+POE::Component::IRC::Plugin::QueryDNS is a L<POE::Component::IRC> plugin that provides DNSBL query
 facilities to the channels it occupies and via private messaging.
 
-It uses L<POE::Component::Client::DNSBL> to do non-blocking DNSBL queries. By default the plugin attempts 
+It uses L<POE::Component::Client::DNSBL> to do non-blocking DNSBL queries. By default the plugin attempts
 to use L<POE::Component::IRC>'s internal PoCo-Client-DNS resolver object, but will spawn its own copy.
 You can supply your own resolver object via the constructor.
 
+=for Pod::Coverage   PCI_register
+  PCI_unregister
+  S_public
+  S_msg
+
 =head1 CONSTRUCTOR
 
-=over 
+=over
 
 =item C<new>
 
 Creates a new plugin object. Takes some optional parameter:
 
   'command', define the command that will trigger DNSBL queries, default is 'dnsbl';
-  'privmsg', set to a true value to specify that the bot should reply with PRIVMSG instead of 
+  'privmsg', set to a true value to specify that the bot should reply with PRIVMSG instead of
 	     NOTICE to privmsgs that it receives.
   'resolver', specify a POE::Component::Client::DNS object that the plugin should use,
 	      the default is to try and use POE::Component::IRC's resolver;
@@ -183,19 +196,22 @@ The bot replies to requests in the following form, when addressed:
 
 Of course, if you changed the C<command> in the constructor it will be something different to C<dns>.
 
-=head1 AUTHOR
-
-Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
-
-=head1 LICENSE
-
-Copyright E<copy> Chris Williams.
-
-This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
-
 =head1 SEE ALSO
 
 L<POE::Component::Client::DNSBL>
 
 L<http://en.wikipedia.org/wiki/DNSBL>
+
+=head1 AUTHOR
+
+Chris Williams <chris@bingosnet.co.uk>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Chris Williams.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut
 
