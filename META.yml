@@ -7,14 +7,14 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110930'
+generated_by: 'Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112621'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: POE-Component-IRC-Plugin-QueryDNSBL
 requires:
-  Net::IP: 0
+  Net::IP::Minimal: 0
   POE: 1.004
   POE::Component::Client::DNSBL: 0.06
   POE::Component::IRC: 5.7
@@ -22,6 +22,6 @@ requires:
   POE::Component::IRC::Plugin: 0.1
   perl: v5.6.0
 resources:
-  homepage: http://github.com/bingos/poe-component-irc-plugin-querydnsbl/tree
-  repository: git://github.com/bingos/poe-component-irc-plugin-querydnsbl.git
-version: 1.02
+  homepage: https://github.com/bingos/poe-component-irc-plugin-querydnsbl
+  repository: https://github.com/bingos/poe-component-irc-plugin-querydnsbl.git
+version: 1.04

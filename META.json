@@ -4,7 +4,7 @@
       "Chris Williams <chris@bingosnet.co.uk>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200006, CPAN::Meta::Converter version 2.110930",
+   "generated_by" : "Dist::Zilla version 4.300003, CPAN::Meta::Converter version 2.112621",
    "license" : [
       "perl_5"
    ],
@@ -26,7 +26,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Net::IP" : 0,
+            "Net::IP::Minimal" : 0,
             "POE" : "1.004",
             "POE::Component::Client::DNSBL" : "0.06",
             "POE::Component::IRC" : "5.7",
@@ -38,13 +38,13 @@
    },
    "release_status" : "stable",
    "resources" : {
-      "homepage" : "http://github.com/bingos/poe-component-irc-plugin-querydnsbl/tree",
+      "homepage" : "https://github.com/bingos/poe-component-irc-plugin-querydnsbl",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/bingos/poe-component-irc-plugin-querydnsbl.git",
-         "web" : "http://github.com/bingos/poe-component-irc-plugin-querydnsbl/tree"
+         "url" : "https://github.com/bingos/poe-component-irc-plugin-querydnsbl.git",
+         "web" : "https://github.com/bingos/poe-component-irc-plugin-querydnsbl"
       }
    },
-   "version" : "1.02"
+   "version" : "1.04"
 }
 

@@ -1,6 +1,6 @@
 package POE::Component::IRC::Plugin::QueryDNSBL;
-BEGIN {
-  $POE::Component::IRC::Plugin::QueryDNSBL::VERSION = '1.02';
+{
+  $POE::Component::IRC::Plugin::QueryDNSBL::VERSION = '1.04';
 }
 
 #ABSTRACT: A POE::Component::IRC plugin for IRC based DNSBL queries
@@ -10,7 +10,7 @@ use warnings;
 use POE;
 use POE::Component::Client::DNSBL;
 use POE::Component::IRC::Plugin qw[:ALL];
-use Net::IP qw[ip_is_ipv4];
+use Net::IP::Minimal qw[ip_is_ipv4];
 
 sub new {
   my $package = shift;
@@ -109,7 +109,7 @@ POE::Component::IRC::Plugin::QueryDNSBL - A POE::Component::IRC plugin for IRC b
 
 =head1 VERSION
 
-version 1.02
+version 1.04
 
 =head1 SYNOPSIS
 

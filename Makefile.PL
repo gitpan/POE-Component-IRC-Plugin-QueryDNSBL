@@ -2,36 +2,36 @@
 use strict;
 use warnings;
 
-BEGIN { require v5.6.0; }
+use 5.006000;
 
 use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'A POE::Component::IRC plugin for IRC based DNSBL queries',
-  'AUTHOR' => 'Chris Williams <chris@bingosnet.co.uk>',
-  'BUILD_REQUIRES' => {
-    'Test::More' => '0.47'
+  "ABSTRACT" => "A POE::Component::IRC plugin for IRC based DNSBL queries",
+  "AUTHOR" => "Chris Williams <chris\@bingosnet.co.uk>",
+  "BUILD_REQUIRES" => {
+    "Test::More" => "0.47"
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'POE-Component-IRC-Plugin-QueryDNSBL',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'POE::Component::IRC::Plugin::QueryDNSBL',
-  'PREREQ_PM' => {
-    'Net::IP' => '0',
-    'POE' => '1.004',
-    'POE::Component::Client::DNSBL' => '0.06',
-    'POE::Component::IRC' => '5.7',
-    'POE::Component::IRC::Common' => '5.16',
-    'POE::Component::IRC::Plugin' => '0.1'
+  "DISTNAME" => "POE-Component-IRC-Plugin-QueryDNSBL",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "POE::Component::IRC::Plugin::QueryDNSBL",
+  "PREREQ_PM" => {
+    "Net::IP::Minimal" => 0,
+    "POE" => "1.004",
+    "POE::Component::Client::DNSBL" => "0.06",
+    "POE::Component::IRC" => "5.7",
+    "POE::Component::IRC::Common" => "5.16",
+    "POE::Component::IRC::Plugin" => "0.1"
   },
-  'VERSION' => '1.02',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "1.04",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 
